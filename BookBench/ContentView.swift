@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLaunchScreenShown = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            Group{
+                if !isLaunchScreenShown {
+                    LaunchScreenView()
+                }
+                else {
+                    AuthenticationView()
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
+                    withAnimation(.easeOut(duration: 0.5)) {
+                        self.isLaunchScreenShown = true
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
