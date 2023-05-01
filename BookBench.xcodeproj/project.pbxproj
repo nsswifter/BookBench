@@ -7,18 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9151F14F29FE931700C46150 /* AuthFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F14E29FE931700C46150 /* AuthFlowState.swift */; };
+		9151F15129FE937400C46150 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15029FE937400C46150 /* SignUpView.swift */; };
+		9151F15329FE938500C46150 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15229FE938500C46150 /* ForgotPasswordView.swift */; };
+		9151F15629FE9C8700C46150 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15529FE9C8700C46150 /* View.swift */; };
 		918A5A2329FE4D9E00937FE8 /* BookBenchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A2229FE4D9E00937FE8 /* BookBenchApp.swift */; };
 		918A5A2529FE4D9E00937FE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A2429FE4D9E00937FE8 /* ContentView.swift */; };
 		918A5A2729FE4DA000937FE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918A5A2629FE4DA000937FE8 /* Assets.xcassets */; };
 		918A5A2A29FE4DA000937FE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918A5A2929FE4DA000937FE8 /* Preview Assets.xcassets */; };
+		918A5A3729FE507A00937FE8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 918A5A3629FE507A00937FE8 /* Lottie */; };
+		918A5A3929FE50CC00937FE8 /* BookBenchAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 918A5A3829FE50CC00937FE8 /* BookBenchAnimation.json */; };
+		918A5A3B29FE517E00937FE8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A3A29FE517E00937FE8 /* LottieView.swift */; };
+		918A5A3D29FE595000937FE8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A3C29FE595000937FE8 /* LaunchScreenView.swift */; };
+		918A5A3F29FE76CB00937FE8 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A3E29FE76CB00937FE8 /* LogInView.swift */; };
+		918A5A4129FE785A00937FE8 /* GradientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4029FE785A00937FE8 /* GradientIcon.swift */; };
+		918A5A4329FE915700937FE8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4229FE915700937FE8 /* AuthenticationView.swift */; };
+		91DD35F629FF4D2B0090D2DC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 91DD35F529FF4D2B0090D2DC /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9151F14E29FE931700C46150 /* AuthFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowState.swift; sourceTree = "<group>"; };
+		9151F15029FE937400C46150 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9151F15229FE938500C46150 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		9151F15529FE9C8700C46150 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		918A5A1F29FE4D9E00937FE8 /* BookBench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookBench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A5A2229FE4D9E00937FE8 /* BookBenchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBenchApp.swift; sourceTree = "<group>"; };
 		918A5A2429FE4D9E00937FE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		918A5A2629FE4DA000937FE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		918A5A2929FE4DA000937FE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		918A5A3829FE50CC00937FE8 /* BookBenchAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BookBenchAnimation.json; sourceTree = "<group>"; };
+		918A5A3A29FE517E00937FE8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		918A5A3C29FE595000937FE8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		918A5A3E29FE76CB00937FE8 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		918A5A4029FE785A00937FE8 /* GradientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientIcon.swift; sourceTree = "<group>"; };
+		918A5A4229FE915700937FE8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +48,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918A5A3729FE507A00937FE8 /* Lottie in Frameworks */,
+				91DD35F629FF4D2B0090D2DC /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9151F15429FE9C7600C46150 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				9151F15529FE9C8700C46150 /* View.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		918A5A1629FE4D9E00937FE8 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +83,18 @@
 		918A5A2129FE4D9E00937FE8 /* BookBench */ = {
 			isa = PBXGroup;
 			children = (
+				9151F15429FE9C7600C46150 /* Extentions */,
+				918A5A3029FE4DFA00937FE8 /* Lottie */,
 				918A5A2229FE4D9E00937FE8 /* BookBenchApp.swift */,
 				918A5A2429FE4D9E00937FE8 /* ContentView.swift */,
+				918A5A4229FE915700937FE8 /* AuthenticationView.swift */,
+				9151F15229FE938500C46150 /* ForgotPasswordView.swift */,
+				9151F15029FE937400C46150 /* SignUpView.swift */,
+				918A5A3A29FE517E00937FE8 /* LottieView.swift */,
+				918A5A3C29FE595000937FE8 /* LaunchScreenView.swift */,
+				918A5A3E29FE76CB00937FE8 /* LogInView.swift */,
+				9151F14E29FE931700C46150 /* AuthFlowState.swift */,
+				918A5A4029FE785A00937FE8 /* GradientIcon.swift */,
 				918A5A2629FE4DA000937FE8 /* Assets.xcassets */,
 				918A5A2829FE4DA000937FE8 /* Preview Content */,
 			);
@@ -65,6 +107,14 @@
 				918A5A2929FE4DA000937FE8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		918A5A3029FE4DFA00937FE8 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				918A5A3829FE50CC00937FE8 /* BookBenchAnimation.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +133,10 @@
 			dependencies = (
 			);
 			name = BookBench;
+			packageProductDependencies = (
+				918A5A3629FE507A00937FE8 /* Lottie */,
+				91DD35F529FF4D2B0090D2DC /* FirebaseAuth */,
+			);
 			productName = BookBench;
 			productReference = 918A5A1F29FE4D9E00937FE8 /* BookBench.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +165,10 @@
 				Base,
 			);
 			mainGroup = 918A5A1629FE4D9E00937FE8;
+			packageReferences = (
+				918A5A3529FE507A00937FE8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				91DD35F429FF4D2A0090D2DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 918A5A2029FE4D9E00937FE8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918A5A3929FE50CC00937FE8 /* BookBenchAnimation.json in Resources */,
 				918A5A2A29FE4DA000937FE8 /* Preview Assets.xcassets in Resources */,
 				918A5A2729FE4DA000937FE8 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9151F15129FE937400C46150 /* SignUpView.swift in Sources */,
+				918A5A4129FE785A00937FE8 /* GradientIcon.swift in Sources */,
+				9151F14F29FE931700C46150 /* AuthFlowState.swift in Sources */,
 				918A5A2529FE4D9E00937FE8 /* ContentView.swift in Sources */,
 				918A5A2329FE4D9E00937FE8 /* BookBenchApp.swift in Sources */,
+				918A5A4329FE915700937FE8 /* AuthenticationView.swift in Sources */,
+				918A5A3B29FE517E00937FE8 /* LottieView.swift in Sources */,
+				918A5A3D29FE595000937FE8 /* LaunchScreenView.swift in Sources */,
+				9151F15329FE938500C46150 /* ForgotPasswordView.swift in Sources */,
+				9151F15629FE9C8700C46150 /* View.swift in Sources */,
+				918A5A3F29FE76CB00937FE8 /* LogInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +338,7 @@
 				DEVELOPMENT_TEAM = X8S7NK9ZBV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Book Bench";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +368,7 @@
 				DEVELOPMENT_TEAM = X8S7NK9ZBV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Book Bench";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +409,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		918A5A3529FE507A00937FE8 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		91DD35F429FF4D2A0090D2DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		918A5A3629FE507A00937FE8 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 918A5A3529FE507A00937FE8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		91DD35F529FF4D2B0090D2DC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91DD35F429FF4D2A0090D2DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 918A5A1729FE4D9E00937FE8 /* Project object */;
 }
