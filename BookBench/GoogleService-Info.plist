@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>733796723338-qcb9il3ra82up9fi8gjr2bmlg6e7nh46.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.733796723338-qcb9il3ra82up9fi8gjr2bmlg6e7nh46</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAJ37bPb70kJAQ7qt4WDDEuwYKgO1hEJcg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>733796723338</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>mehdi.BookBench</string>
+	<key>PROJECT_ID</key>
+	<string>book-bench</string>
+	<key>STORAGE_BUCKET</key>
+	<string>book-bench.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:733796723338:ios:d38b4086cd60a895f19b73</string>
+</dict>
+</plist>
