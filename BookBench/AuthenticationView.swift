@@ -36,14 +36,19 @@ struct AuthenticationView: View {
                 self.start = UnitPoint(x: 4, y: 0)
             })
             .ignoresSafeArea()
-                                        
-            switch authFlowState.currentPage {
-            case .logIn:
-                LogInView()
-            case .signUp:
-                SignUpView()
-            case .forgotPassword:
-                ForgotPasswordView()
+                  
+            Group {
+                switch authFlowState.currentPage {
+                case .logIn:
+                    LogInView()
+                case .signUp:
+                    SignUpView()
+                case .forgotPassword:
+                    ForgotPasswordView()
+                }
+            }
+            .onTapGesture {
+                hideKeyboard()
             }
         }
     }
