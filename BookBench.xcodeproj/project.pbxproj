@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91072C8C2A015C1C003E9E1F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 91072C8B2A015C1C003E9E1F /* Lottie */; };
+		9100D30F2A02152200874CA5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9100D30E2A02152200874CA5 /* Lottie */; };
 		9151F14F29FE931700C46150 /* AuthFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F14E29FE931700C46150 /* AuthFlowState.swift */; };
 		9151F15129FE937400C46150 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15029FE937400C46150 /* SignUpView.swift */; };
 		9151F15329FE938500C46150 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15229FE938500C46150 /* ForgotPasswordView.swift */; };
@@ -50,8 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91072C8C2A015C1C003E9E1F /* Lottie in Frameworks */,
 				919ADF1F2A02086B00B50182 /* FirebaseAuth in Frameworks */,
+				9100D30F2A02152200874CA5 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +137,8 @@
 			);
 			name = BookBench;
 			packageProductDependencies = (
-				91072C8B2A015C1C003E9E1F /* Lottie */,
 				919ADF1E2A02086B00B50182 /* FirebaseAuth */,
+				9100D30E2A02152200874CA5 /* Lottie */,
 			);
 			productName = BookBench;
 			productReference = 918A5A1F29FE4D9E00937FE8 /* BookBench.app */;
@@ -169,8 +169,8 @@
 			);
 			mainGroup = 918A5A1629FE4D9E00937FE8;
 			packageReferences = (
-				91072C8A2A015C1C003E9E1F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 918A5A2029FE4D9E00937FE8 /* Products */;
 			projectDirPath = "";
@@ -415,7 +415,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		91072C8A2A015C1C003E9E1F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -434,9 +434,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		91072C8B2A015C1C003E9E1F /* Lottie */ = {
+		9100D30E2A02152200874CA5 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91072C8A2A015C1C003E9E1F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 		919ADF1E2A02086B00B50182 /* FirebaseAuth */ = {
