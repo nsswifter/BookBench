@@ -22,7 +22,7 @@ struct GradientIcon: View {
                 .font(.title2)
                 .foregroundColor(colorScheme == .dark ? .black : .white)
         }
-        .frame(width: 50, height: 50)
+        .frame(width: 40, height: 40)
     }
 }
 

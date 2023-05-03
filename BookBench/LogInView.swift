@@ -18,13 +18,13 @@ struct LogInView: View {
     var body: some View {
         VStack(spacing: 16) {
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Log in" )
-                    .font(.largeTitle)
+                    .font(.title2)
                     .fontWeight(.bold)
                 
                 Text("Reserve a seat and study in a great environment, work on your projects and use the library's rich collection of books.")
-                    .font(.subheadline)
+                    .font(.caption2)
                     .opacity(0.7)
             }
             
@@ -39,9 +39,8 @@ struct LogInView: View {
             } label: {
                 Text("Log in")
                     .bold()
-                    .font(.title2)
-                    .frame(width: verticalSizeClass == .regular ? 265 : 575)
-                    .padding()
+                    .frame(width: verticalSizeClass == .regular ? 300 : 605)
+                    .padding([.top, .bottom], 12)
                     .foregroundColor(colorScheme == .dark ? .black : .white)
                     .background(Capsule(style: .continuous)
                         .fill(
@@ -64,10 +63,9 @@ struct LogInView: View {
         }
         .padding()
         .background(colorScheme == .dark ?
-            .black.opacity(0.5) :
-                .white.opacity(0.5))
+            .black.opacity(0.5) : .white.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        .padding()
+        .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
     }
     
     var inputViews: some View {
@@ -76,9 +74,10 @@ struct LogInView: View {
                 GradientIcon(systemName: "person.fill")
                 
                 TextField("Username", text: $username)
-                    .padding()
+                    .font(Font.subheadline)
+                    .padding(17)
             }
-            .padding(8)
+            .padding([.leading, .trailing],8)
             .background(.indigo.opacity(0.2))
             .cornerRadius(25)
             .frame(width: 300)
@@ -88,9 +87,10 @@ struct LogInView: View {
                 
                 SecureField("Password", text: $password)
                     .textContentType(.password)
-                    .padding()
+                    .font(Font.subheadline)
+                    .padding(17)
             }
-            .padding(8)
+            .padding([.leading, .trailing],8)
             .background(.indigo.opacity(0.2))
             .cornerRadius(25)
             .frame(width: 300)
@@ -110,7 +110,6 @@ struct LogInView: View {
                         .bold()
                 }
             }
-            .font(.subheadline)
             .padding(.bottom, 1)
             
             if verticalSizeClass != .regular {
@@ -128,8 +127,8 @@ struct LogInView: View {
                         .bold()
                 }
             }
-            .font(.subheadline)
         }
+        .font(.caption2)
     }
 }
 
