@@ -84,7 +84,7 @@ struct SignUpView: View {
                     TextField("Firstname", text: $firstname)
                         .font(.subheadline)
                         .padding(17)
-                        .textContentType(.name)
+                        .textContentType(.givenName)
                         .disableAutocorrection(true)
                         .submitLabel(.next)
                         .onSubmit {
