@@ -8,14 +8,14 @@
 import SwiftUI
 
 extension View {
-    func horizontalStack(alignment: VerticalAlignment = .center) -> some View {
-        HStack(alignment: alignment) {
+    func horizontalStack(alignment: VerticalAlignment = .center, spacing: CGFloat? = nil) -> some View {
+        HStack(alignment: alignment, spacing: spacing) {
             self
         }
     }
     
-    func verticalStack(alignment: HorizontalAlignment = .center) -> some View {
-        VStack(alignment: alignment) {
+    func verticalStack(alignment: HorizontalAlignment = .center,  spacing: CGFloat? = nil) -> some View {
+        VStack(alignment: alignment, spacing: spacing) {
             self
         }
     }
