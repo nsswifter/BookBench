@@ -12,7 +12,10 @@ struct LogInView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    @State var username = ""
+    @ObservedObject var authFlowState: AuthFlowState
+    @FocusState private var passwordFocused: Bool
+    
+    @State var email = ""
     @State var password = ""
     
     var body: some View {
@@ -29,13 +32,15 @@ struct LogInView: View {
             }
             
             if verticalSizeClass == .regular {
-                inputViews.verticalStack()
+                inputView()
+                    .verticalStack()
             } else {
-                inputViews.horizontalStack()
+                inputView()
+                    .horizontalStack()
             }
             
             Button {
-                
+                logIn()
             } label: {
                 Text("Log in")
                     .bold()
@@ -68,14 +73,22 @@ struct LogInView: View {
         .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
     }
     
-    var inputViews: some View {
+    func inputView() -> some View {
         Group {
             HStack {
-                GradientIcon(systemName: "person.fill")
+                GradientIcon(systemName: "envelope.fill")
                 
-                TextField("Username", text: $username)
-                    .font(Font.subheadline)
+                TextField("Email", text: $email)
+                    .font(.subheadline)
                     .padding(17)
+                    .textContentType(.emailAddress)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                    .submitLabel(.next)
+                    .onSubmit {
+                        passwordFocused = true
+                    }
             }
             .padding([.leading, .trailing],8)
             .background(.indigo.opacity(0.2))
@@ -85,10 +98,16 @@ struct LogInView: View {
             HStack {
                 GradientIcon(systemName: "key.fill")
                 
-                SecureField("Password", text: $password)
-                    .textContentType(.password)
-                    .font(Font.subheadline)
+                RevealableSecureField("Password",text: $password)
+                    .font(.subheadline)
                     .padding(17)
+                    .textContentType(.password)
+                    .keyboardType(.asciiCapable)
+                    .submitLabel(.go)
+                    .focused($passwordFocused)
+                    .onSubmit {
+                        logIn()
+                    }
             }
             .padding([.leading, .trailing],8)
             .background(.indigo.opacity(0.2))
@@ -103,7 +122,7 @@ struct LogInView: View {
                 Text("Don't have an account?")
                 
                 Button {
-                    AuthFlowState().goToSignUpPage()
+                    authFlowState.currentPage = .signUp
                 } label: {
                     Text("Sign up")
                         .foregroundColor(.indigo)
@@ -120,7 +139,7 @@ struct LogInView: View {
                 Text("Forgot password?")
                 
                 Button {
-                    AuthFlowState().goToForgotPasswordPage()
+                    authFlowState.currentPage = .forgotPassword
                 } label: {
                     Text("Reset Password")
                         .foregroundColor(.indigo)
@@ -130,13 +149,17 @@ struct LogInView: View {
         }
         .font(.caption2)
     }
+    
+    // TODO: Log In functionality
+    func logIn() {
+        
+    }
 }
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.indigo.ignoresSafeArea()
-            LogInView()
+            AuthenticationView()
         }
     }
 }
