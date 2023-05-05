@@ -49,6 +49,6 @@ struct RevealableSecureField: View {
 
 struct RevealableSecureField_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationView()
+        AuthView(authViewModel: AuthViewModel())
     }
 }

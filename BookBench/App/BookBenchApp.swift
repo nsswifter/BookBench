@@ -10,13 +10,15 @@ import Firebase
 
 @main
 struct BookBenchApp: App {
+    @StateObject var authViewModel = AuthViewModel()
+    
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(authViewModel: authViewModel)
         }
     }
 }

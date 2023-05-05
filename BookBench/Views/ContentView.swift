@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+
     @State private var isLaunchScreenShown = false
-    
+
     var body: some View {
         ZStack {
             Group{
@@ -17,7 +19,7 @@ struct ContentView: View {
                     LaunchScreenView()
                 }
                 else {
-                    AuthenticationView()
+                    AuthView(authViewModel: authViewModel)
                 }
             }
             .onAppear {
@@ -33,6 +35,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(authViewModel: AuthViewModel())
     }
 }

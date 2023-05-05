@@ -12,11 +12,9 @@ struct LogInView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    @ObservedObject var authFlowState: AuthFlowState
-    @FocusState private var passwordFocused: Bool
+    @ObservedObject var authViewModel: AuthViewModel
     
-    @State var email = ""
-    @State var password = ""
+    @FocusState private var passwordFocused: Bool
     
     var body: some View {
         VStack(spacing: 16) {
@@ -40,7 +38,7 @@ struct LogInView: View {
             }
             
             Button {
-                logIn()
+                authViewModel.logIn()
             } label: {
                 Text("Log in")
                     .bold()
@@ -71,14 +69,18 @@ struct LogInView: View {
             .black.opacity(0.5) : .white.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
+        .frame(maxWidth: verticalSizeClass == .regular ? 450 : 800)
+        .animation(.linear(duration: 25), value: 25)
     }
-    
+}
+ 
+extension LogInView {
     func inputView() -> some View {
         Group {
             HStack {
                 GradientIcon(systemName: "envelope.fill")
                 
-                TextField("Email", text: $email)
+                TextField("Email", text: $authViewModel.email)
                     .font(.subheadline)
                     .padding(17)
                     .textContentType(.emailAddress)
@@ -98,7 +100,7 @@ struct LogInView: View {
             HStack {
                 GradientIcon(systemName: "key.fill")
                 
-                RevealableSecureField("Password",text: $password)
+                RevealableSecureField("Password",text: $authViewModel.password)
                     .font(.subheadline)
                     .padding(17)
                     .textContentType(.password)
@@ -106,7 +108,7 @@ struct LogInView: View {
                     .submitLabel(.go)
                     .focused($passwordFocused)
                     .onSubmit {
-                        logIn()
+                        authViewModel.logIn()
                     }
             }
             .padding([.leading, .trailing],8)
@@ -115,14 +117,16 @@ struct LogInView: View {
             .frame(width: 300)
         }
     }
-    
+}
+
+extension LogInView {
     var otherOptionView: some View {
         Group {
             HStack {
                 Text("Don't have an account?")
                 
                 Button {
-                    authFlowState.currentPage = .signUp
+                    authViewModel.currentPage = .signUp
                 } label: {
                     Text("Sign up")
                         .foregroundColor(.indigo)
@@ -139,7 +143,7 @@ struct LogInView: View {
                 Text("Forgot password?")
                 
                 Button {
-                    authFlowState.currentPage = .forgotPassword
+                    authViewModel.currentPage = .forgotPassword
                 } label: {
                     Text("Reset Password")
                         .foregroundColor(.indigo)
@@ -149,17 +153,12 @@ struct LogInView: View {
         }
         .font(.caption2)
     }
-    
-    // TODO: Log In functionality
-    func logIn() {
-        
-    }
 }
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            AuthenticationView()
+            AuthView(authViewModel: AuthViewModel())
         }
     }
 }

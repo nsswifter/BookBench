@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ForgotPasswordView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+
     var body: some View {
         Text("ForgotPasswordView")
     }
@@ -15,6 +17,6 @@ struct ForgotPasswordView: View {
 
 struct ForgotPasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        ForgotPasswordView()
+        ForgotPasswordView(authViewModel: AuthViewModel())
     }
 }

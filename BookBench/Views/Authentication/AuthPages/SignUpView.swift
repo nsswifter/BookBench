@@ -12,18 +12,13 @@ struct SignUpView: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    @ObservedObject var authFlowState: AuthFlowState
+    @ObservedObject var authViewModel: AuthViewModel
+    
     @FocusState private var lastnameFocused: Bool
     @FocusState private var emailFocused: Bool
     @FocusState private var passwordFocused: Bool
     @FocusState private var repeatedPasswordFocused: Bool
     
-    @State var firstname = ""
-    @State var lastname = ""
-    @State var email = ""
-    @State var password = ""
-    @State var repeatedPassword = ""
-
     var body: some View {
         VStack(spacing: 16) {
             
@@ -46,7 +41,7 @@ struct SignUpView: View {
             }
             
             Button {
-                logIn()
+                authViewModel.signUp()
             } label: {
                 Text("Sign up")
                     .bold()
@@ -73,15 +68,18 @@ struct SignUpView: View {
             .black.opacity(0.5) : .white.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
+        .frame(maxWidth: verticalSizeClass == .regular ? 420 : 800)
     }
+}
     
+extension SignUpView {
     func inputView() -> some View {
         Group {
             VStack {
                 HStack(spacing: 10) {
                     GradientIcon(systemName: "person.fill")
                     
-                    TextField("Firstname", text: $firstname)
+                    TextField("Firstname", text: $authViewModel.firstname)
                         .font(.subheadline)
                         .padding(17)
                         .textContentType(.givenName)
@@ -93,7 +91,7 @@ struct SignUpView: View {
                     
                     Divider()
                     
-                    TextField("Lastname", text: $lastname)
+                    TextField("Lastname", text: $authViewModel.lastname)
                         .font(.subheadline)
                         .padding(17)
                         .textContentType(.familyName)
@@ -112,7 +110,7 @@ struct SignUpView: View {
                 HStack {
                     GradientIcon(systemName: "envelope.fill")
                     
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $authViewModel.email)
                         .font(.subheadline)
                         .padding(17)
                         .textContentType(.emailAddress)
@@ -128,13 +126,14 @@ struct SignUpView: View {
                 .padding([.leading, .trailing],8)
                 .background(.indigo.opacity(0.2))
                 .cornerRadius(25)
+                .frame(width: 300, height: 50)
             }
             
             VStack(spacing: 0) {
                 HStack {
                     GradientIcon(systemName: "key.fill")
                     
-                    RevealableSecureField("Password",text: $password)
+                    RevealableSecureField("Password",text: $authViewModel.password)
                         .font(.subheadline)
                         .padding(17)
                         .textContentType(.password)
@@ -146,10 +145,10 @@ struct SignUpView: View {
                         }
                 }
                 .frame(height: 55)
-
+                
                 Divider()
                 
-                RevealableSecureField("Repeat Password", text: $repeatedPassword)
+                RevealableSecureField("Repeat Password", text: $authViewModel.repeatedPassword)
                     .font(.subheadline)
                     .padding(17)
                     .textContentType(.password)
@@ -157,7 +156,7 @@ struct SignUpView: View {
                     .submitLabel(.go)
                     .focused($repeatedPasswordFocused)
                     .onSubmit {
-                        logIn()
+                        authViewModel.logIn()
                     }
                     .frame(height: 55)
             }
@@ -167,14 +166,16 @@ struct SignUpView: View {
             .frame(width: 300, height: 110)
         }
     }
-    
+}
+ 
+extension SignUpView {
     func otherOptionView() -> some View {
         HStack {
             HStack {
                 Text("Sign up with:")
                 
                 Button {
-                    authFlowState.currentPage = .forgotPassword
+                    
                 } label: {
                     GradientIcon(systemName: "")
                 }
@@ -188,7 +189,7 @@ struct SignUpView: View {
                 Text("Have an account?")
                 
                 Button {
-                    authFlowState.currentPage = .logIn
+                    authViewModel.currentPage = .logIn
                 } label: {
                     Text("Log in")
                         .foregroundColor(.indigo)
@@ -199,15 +200,10 @@ struct SignUpView: View {
         }
         .font(.caption2)
     }
-    
-    // TODO: Log In functionality
-    func logIn() {
-        
-    }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationView()
+        AuthView(authViewModel: AuthViewModel())
     }
 }
