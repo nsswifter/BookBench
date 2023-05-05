@@ -105,6 +105,7 @@ extension LogInView {
                     .padding(17)
                     .textContentType(.password)
                     .keyboardType(.asciiCapable)
+                    .autocapitalization(.none)
                     .submitLabel(.go)
                     .focused($passwordFocused)
                     .onSubmit {

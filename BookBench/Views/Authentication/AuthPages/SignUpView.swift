@@ -138,6 +138,7 @@ extension SignUpView {
                         .padding(17)
                         .textContentType(.password)
                         .keyboardType(.asciiCapable)
+                        .autocapitalization(.none)
                         .submitLabel(.next)
                         .focused($passwordFocused)
                         .onSubmit {
@@ -153,6 +154,7 @@ extension SignUpView {
                     .padding(17)
                     .textContentType(.password)
                     .keyboardType(.asciiCapable)
+                    .autocapitalization(.none)
                     .submitLabel(.go)
                     .focused($repeatedPasswordFocused)
                     .onSubmit {
