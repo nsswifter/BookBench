@@ -40,9 +40,9 @@ struct AuthenticationView: View {
             Group {
                 switch authFlowState.currentPage {
                 case .logIn:
-                    LogInView()
+                    LogInView(authFlowState: authFlowState)
                 case .signUp:
-                    SignUpView()
+                    SignUpView(authFlowState: authFlowState)
                 case .forgotPassword:
                     ForgotPasswordView()
                 }
