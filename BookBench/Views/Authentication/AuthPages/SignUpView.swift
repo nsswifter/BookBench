@@ -45,7 +45,7 @@ struct SignUpView: View {
             }
             
             Button {
-                errorText = authViewModel.signUp()
+
             } label: {
                 Text("Sign up")
                     .bold()
@@ -63,7 +63,7 @@ struct SignUpView: View {
                     )
             }
             
-            Text("\(errorText)")
+            Text("")
                 .foregroundColor(.red)
                 .bold()
                 .font(.footnote)
