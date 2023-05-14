@@ -7,12 +7,24 @@
 
 import SwiftUI
 
+// MARK: - Revealable Secure Field View
+
+/// A SwiftUI view that combines a `SecureField` with a reveal/hide password toggle button.
 struct RevealableSecureField: View {
+    
+    // A focus state for the reveal password mode.
     @FocusState private var show: Bool
+    
+    // A focus state for the hide password mode.
     @FocusState private var hide: Bool
     
+    // A Boolean value that determines whether the password is visible or not.
     @State var showMode = false
+    
+    // The title of the secure field.
     var title: String
+    
+    // A binding to the text displayed in the secure field.
     @Binding var text: String
     
     init(_ title: String, text: Binding<String>) {
@@ -46,6 +58,8 @@ struct RevealableSecureField: View {
         }
     }
 }
+
+// MARK: - Revealable Secure Field View Preview
 
 struct RevealableSecureField_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - LogIn View
+
 struct LogInView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -16,6 +18,8 @@ struct LogInView: View {
     
     @FocusState private var passwordFocused: Bool
     
+    @State private var showProfileView = false
+
     var body: some View {
         VStack(spacing: 16) {
             
@@ -71,9 +75,14 @@ struct LogInView: View {
         .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
         .frame(maxWidth: verticalSizeClass == .regular ? 450 : 800)
         .animation(.linear(duration: 25), value: 25)
+        .fullScreenCover(isPresented: $showProfileView) {
+            ProfileView()
+        }
     }
 }
  
+// MARK: - Input Items Part
+
 extension LogInView {
     func inputView() -> some View {
         Group {
@@ -120,6 +129,8 @@ extension LogInView {
     }
 }
 
+// MARK: - Other Option Items Part
+
 extension LogInView {
     var otherOptionView: some View {
         Group {
@@ -156,6 +167,7 @@ extension LogInView {
     }
 }
 
+// MARK: - LogIn View Preview
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {

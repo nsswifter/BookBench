@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - SignUp View
+
 struct SignUpView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -19,6 +21,8 @@ struct SignUpView: View {
     @FocusState private var passwordFocused: Bool
     @FocusState private var repeatedPasswordFocused: Bool
     
+    @State var errorText = ""
+        
     var body: some View {
         VStack(spacing: 16) {
             
@@ -41,7 +45,7 @@ struct SignUpView: View {
             }
             
             Button {
-                authViewModel.signUp()
+                errorText = authViewModel.signUp()
             } label: {
                 Text("Sign up")
                     .bold()
@@ -59,6 +63,12 @@ struct SignUpView: View {
                     )
             }
             
+            Text("\(errorText)")
+                .foregroundColor(.red)
+                .bold()
+                .font(.footnote)
+                .shadow(color: colorScheme == .dark ? .black : .white, radius: 0.5)
+
             Divider()
             
             otherOptionView()
@@ -71,7 +81,9 @@ struct SignUpView: View {
         .frame(maxWidth: verticalSizeClass == .regular ? 420 : 800)
     }
 }
-    
+
+// MARK: - Input Items Part
+
 extension SignUpView {
     func inputView() -> some View {
         Group {
@@ -170,6 +182,8 @@ extension SignUpView {
     }
 }
  
+// MARK: - Other Option Items Part
+
 extension SignUpView {
     func otherOptionView() -> some View {
         HStack {
@@ -203,6 +217,8 @@ extension SignUpView {
         .font(.caption2)
     }
 }
+
+// MARK: - SignUp View Preview
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {

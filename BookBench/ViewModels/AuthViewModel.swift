@@ -10,6 +10,8 @@ import Firebase
 import FirebaseFirestore
 import Security
 
+// MARK: - Auth View Model
+
 class AuthViewModel: ObservableObject {
     @Published var currentPage: AuthPage = .logIn
     
@@ -62,25 +64,45 @@ class AuthViewModel: ObservableObject {
     }
     
     func forgotPassword() {
-        
+        func sendPasswordResetEmail() {
+            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+
+            }
+        }
+    }
+    
+    func autoLogIn(with mode: inout Bool) {
+        var localMode = mode
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                localMode.toggle()
+            }
+        }
+        mode = localMode
     }
 }
 
+// MARK: - Navigating Between Auth Pages
+
 extension AuthViewModel {
+    /// An enumeration of the possible Auth current pages.
     enum AuthPage {
         case logIn
         case signUp
         case forgotPassword
     }
     
+    /// Sets the current page to the Login Page.
     func goToLoginPage() {
         currentPage = .logIn
     }
     
+    /// Sets the current page to the SignUp Page.
     func goToSignUpPage() {
         currentPage = .signUp
     }
     
+    /// Sets the current page to the Forgot Password Page.
     func goToForgotPasswordPage() {
         currentPage = .forgotPassword
     }

@@ -7,14 +7,20 @@
 
 import SwiftUI
 
+// MARK: - Main View
+
 struct MainView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+
     var body: some View {
         Text("Hello, World!")
     }
 }
 
+// MARK: - Main View Preview
+
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(authViewModel: AuthViewModel())
     }
 }

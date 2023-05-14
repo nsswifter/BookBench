@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+// MARK: - Gradient Icon View
+
+/// A view that displays an icon with a gradient background.
 struct GradientIcon: View {
+    
+    // The color scheme of the parent environment.
     @Environment(\.colorScheme) private var colorScheme
+    
+    // The system name of the icon to display.
     var systemName: String
     
     var body: some View {
@@ -25,6 +32,8 @@ struct GradientIcon: View {
         .frame(width: 40, height: 40)
     }
 }
+
+// MARK: - Gradient Icon View Preview
 
 struct GradientIcon_Previews: PreviewProvider {
     static var previews: some View {

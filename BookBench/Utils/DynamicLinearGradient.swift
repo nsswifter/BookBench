@@ -7,12 +7,20 @@
 
 import SwiftUI
 
+// MARK: - Dynamic Linear Gradient View
+
+/// A SwiftUI view that renders a linear gradient with changing colors and animation.
 struct DynamicLinearGradient: View {
+    
+    // The environment color scheme, used to determine the gradient colors to use.
     @Environment(\.colorScheme) private var colorScheme
 
+    // The starting point of the gradient.
     @State var start = UnitPoint(x: -0.5, y: -2)
+    // The ending point of the gradient.
     @State var end = UnitPoint(x: 4, y: 0)
     
+    // A timer that triggers a change in the gradient's start and end points.
     let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
     
     var lightModeColors = [Color.indigo, .white, .purple, .white, .indigo, .white]
@@ -34,6 +42,8 @@ struct DynamicLinearGradient: View {
         })
     }
 }
+
+// MARK: - Dynamic Linear Gradient View Preview
 
 struct DynamicLinearGradient_Previews: PreviewProvider {
     static var previews: some View {
