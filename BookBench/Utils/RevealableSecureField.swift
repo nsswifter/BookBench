@@ -39,7 +39,7 @@ struct RevealableSecureField: View {
                     else { hide = true }
                 } label: {
                     Image(systemName: showMode ? "eye.slash.fill" : "eye.fill")
-                        .font(.system(size: 16, weight: .regular))
+                        .font(.system(size: 13, weight: .regular))
                         .foregroundColor(.accentColor)
                 }
             }

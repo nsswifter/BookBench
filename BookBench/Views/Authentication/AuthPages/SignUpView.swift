@@ -179,7 +179,7 @@ extension SignUpView {
                 Button {
                     
                 } label: {
-                    GradientIcon(systemName: "")
+                    GradientIcon(systemName: "book")
                 }
             }
             

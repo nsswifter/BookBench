@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AuthView: View {
-    @ObservedObject var authViewModel: AuthViewModel
+    @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
         ZStack {
@@ -33,6 +33,6 @@ struct AuthView: View {
 
 struct AuthenticationView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(authViewModel: AuthViewModel())
+        AuthView()
     }
 }
