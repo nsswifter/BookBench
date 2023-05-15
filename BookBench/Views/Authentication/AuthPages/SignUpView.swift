@@ -22,7 +22,8 @@ struct SignUpView: View {
     @FocusState private var repeatedPasswordFocused: Bool
     
     @State var errorText = ""
-        
+    @State var signUpError: String?
+
     var body: some View {
         VStack(spacing: 16) {
             
@@ -45,7 +46,11 @@ struct SignUpView: View {
             }
             
             Button {
-
+                authViewModel.signUp { result in
+                    if let error = result {
+                        signUpError = error
+                    }
+                }
             } label: {
                 Text("Sign up")
                     .bold()
@@ -63,11 +68,13 @@ struct SignUpView: View {
                     )
             }
             
-            Text("")
-                .foregroundColor(.red)
-                .bold()
-                .font(.footnote)
-                .shadow(color: colorScheme == .dark ? .black : .white, radius: 0.5)
+            if let signUpError {
+                Text(signUpError)
+                    .foregroundColor(.red)
+                    .bold()
+                    .font(.caption2)
+                    .shadow(color: colorScheme == .dark ? .black : .white, radius: 0.5)
+            }
 
             Divider()
             
@@ -169,10 +176,14 @@ extension SignUpView {
                     .autocapitalization(.none)
                     .submitLabel(.go)
                     .focused($repeatedPasswordFocused)
-                    .onSubmit {
-                        authViewModel.logIn()
-                    }
                     .frame(height: 55)
+                    .onSubmit {
+                        authViewModel.signUp { result in
+                            if let error = result {
+                                signUpError = error
+                            }
+                        }
+                    }
             }
             .padding([.leading, .trailing],8)
             .background(.indigo.opacity(0.2))
@@ -191,7 +202,7 @@ extension SignUpView {
                 Text("Sign up with:")
                 
                 Button {
-                    
+                    authViewModel.signInGoogle()
                 } label: {
                     GradientIcon(systemName: "book")
                 }

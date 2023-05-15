@@ -8,11 +8,11 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
-import Security
+import GoogleSignIn
 
 // MARK: - Auth View Model
 
-class AuthViewModel: ObservableObject {
+class AuthViewModel: UIViewController, ObservableObject {
     @Published var currentPage: AuthPage = .logIn
     
     @Published var firstname = ""
@@ -21,55 +21,97 @@ class AuthViewModel: ObservableObject {
     @Published var password = ""
     @Published var repeatedPassword = ""
     
-    func logIn() {
+    /// Logs in the user with the provided email and password.
+    /// Uses the Firebase Auth module to perform the login operation.
+    /// - Parameter completion: A closure that takes an optional String parameter. It will be called after the login attempt is completed.
+    /// If an error occurs during the login process, the error description will be passed as a parameter.
+    /// If the login is successful, the parameter will be nil.
+    /// - Important: The `email` and `password` properties should be set before calling this function.
+    /// - Requires: Firebase/Auth module
+    func logIn(completion: @escaping (String?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-            guard let error else {
-                print("success")
-                return
+            if let error {
+                completion(error.localizedDescription)
+            } else {
+                
             }
-            
-            print(error.localizedDescription)
         }
     }
     
-    func signUp() {
-        if password == repeatedPassword {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                guard let user = authResult?.user, error == nil else {
-                    print("Error creating user: \(error!.localizedDescription)")
-                    return
-                }
-                
-                saveAdditionalUserInfo(for: user)
-            }
-        } else {
-            print("passwords is not matchs")
+    /// Signs up a new user with the provided information.
+    /// Uses the Firebase Auth and Firestore modules to perform the signup operation and save additional user info.
+    /// - Parameter completion: A closure that takes an optional String parameter. It will be called after the signup attempt is completed.
+    /// If an error occurs during the signup process, the error description will be passed as a parameter.
+    /// If the signup is successful, the parameter will be nil.
+    /// - Important: The `firstname`, `lastname`, `password`, `repeatedPassword`, and `email` properties should be set before calling this function.
+    /// - Requires: Firebase/Auth and Firebase/Firestore modules
+    func signUp(completion: @escaping (String?) -> Void) {
+        guard !firstname.isEmpty else {
+            completion("Enter your firstname.")
+            return
         }
         
-        func saveAdditionalUserInfo(for user: User) {
-            let dataBase = Firestore.firestore()
-            
-            dataBase.collection("users").document(user.uid).setData([
-                "firstname": firstname,
-                "lastname": lastname,
-                "email": email
-            ]) { error in
-                if let error = error {
-                    print("Error saving user info: \(error.localizedDescription)")
-                } else {
-                    print("User info saved successfully!")
+        guard !lastname.isEmpty else {
+            completion("Enter your lastname.")
+            return
+        }
+        
+        guard password == repeatedPassword else {
+            completion("Passwords don't match.")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error {
+                completion(error.localizedDescription)
+            } else {
+                guard let user = authResult?.user else {
+                    completion("Error creating user.")
+                    return
                 }
+                self.saveAdditionalUserInfo(for: user, completion: completion)
             }
         }
     }
     
-    func forgotPassword() {
-        func sendPasswordResetEmail() {
-            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+    /// Saves additional user information to the Firestore database.
+    /// - Parameters:
+    ///   - user: The `User` object representing the user whose information needs to be saved.
+    ///   - completion: A closure that takes an optional String parameter. It will be called after the saving process is completed.
+    ///                 If an error occurs during the saving process, the error description will be passed as a parameter.
+    ///                 If the saving is successful, the parameter will be "Success".
+    /// - Important: The `firstname`, `lastname`, and `email` properties should be set before calling this function.
+    /// - Requires: Firebase/Firestore module
+    func saveAdditionalUserInfo(for user: User, completion: @escaping (String?) -> Void) {
+        let dataBase = Firestore.firestore()
+        
+        dataBase
+            .collection("users")
+            .document(user.uid)
+            .setData([ "firstname": firstname,
+                       "lastname": lastname,
+                       "email": email
+                     ]) { error in
+                if let error { completion(error.localizedDescription) }
+                else {
 
+                }
+            }
+    }
+    
+    
+    func resetPassword(completion: @escaping (String, Bool) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error {
+                // Error occurred while resetting password
+                completion(error.localizedDescription, true)
+            } else {
+                // Password reset email sent successfully
+                completion("Password reset email sent.", false)
             }
         }
     }
+
     
     func autoLogIn(with mode: inout Bool) {
         var localMode = mode
@@ -79,6 +121,46 @@ class AuthViewModel: ObservableObject {
             }
         }
         mode = localMode
+    }
+    
+    func signInGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            // Firebase client ID not available
+            return
+        }
+
+        // Create Google Sign In configuration object
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { result, error in
+            if let error = error {
+                // Handle sign in error
+                print("Sign in with Google failed: \(error.localizedDescription)")
+                return
+            }
+
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString else {
+                // Required user data not available
+                return
+            }
+
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    // Handle Firebase Authentication sign in error
+                    print("Firebase Authentication sign in failed: \(error.localizedDescription)")
+                    return
+                }
+
+                // User is signed in with Firebase Authentication
+                print("User signed in successfully")
+            }
+        }
     }
 }
 

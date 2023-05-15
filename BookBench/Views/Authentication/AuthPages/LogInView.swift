@@ -18,8 +18,8 @@ struct LogInView: View {
     
     @FocusState private var passwordFocused: Bool
     
-    @State private var showProfileView = false
-
+    @State var loginError: String?
+    
     var body: some View {
         VStack(spacing: 16) {
             
@@ -42,7 +42,11 @@ struct LogInView: View {
             }
             
             Button {
-                authViewModel.logIn()
+                authViewModel.logIn { result in
+                    if let error = result {
+                        loginError = error
+                    }
+                }
             } label: {
                 Text("Log in")
                     .bold()
@@ -60,6 +64,14 @@ struct LogInView: View {
                     )
             }
             
+            if let loginError {
+                Text(loginError)
+                    .foregroundColor(.red)
+                    .bold()
+                    .font(.caption2)
+                    .shadow(color: colorScheme == .dark ? .black : .white, radius: 0.5)
+            }
+                
             Divider()
             
             if verticalSizeClass == .regular {
@@ -75,9 +87,6 @@ struct LogInView: View {
         .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
         .frame(maxWidth: verticalSizeClass == .regular ? 450 : 800)
         .animation(.linear(duration: 25), value: 25)
-        .fullScreenCover(isPresented: $showProfileView) {
-            ProfileView()
-        }
     }
 }
  
@@ -118,7 +127,11 @@ extension LogInView {
                     .submitLabel(.go)
                     .focused($passwordFocused)
                     .onSubmit {
-                        authViewModel.logIn()
+                        authViewModel.logIn { result in
+                            if let error = result {
+                                loginError = error
+                            }
+                        }
                     }
             }
             .padding([.leading, .trailing],8)
