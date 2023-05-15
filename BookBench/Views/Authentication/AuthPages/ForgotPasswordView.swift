@@ -85,7 +85,7 @@ struct ForgotPasswordView: View {
         .frame(maxWidth: verticalSizeClass == .regular ? 450 : 800)
         
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("Password Reset"),
+            Alert(title: Text(resetEmailSent ? "Password Reset" : "Password Reset Error"),
                   message: Text(alertMessage),
                   dismissButton: .default(Text("OK")) {
                 if resetEmailSent {
@@ -100,7 +100,9 @@ struct ForgotPasswordView: View {
 
 struct ForgotPasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        ForgotPasswordView(authViewModel: AuthViewModel())
-        AuthView(authViewModel: AuthViewModel())
+        Group {
+            ForgotPasswordView(authViewModel: AuthViewModel())
+            AuthView(authViewModel: AuthViewModel())
+        }
     }
 }

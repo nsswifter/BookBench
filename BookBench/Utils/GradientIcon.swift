@@ -16,7 +16,7 @@ struct GradientIcon: View {
     @Environment(\.colorScheme) private var colorScheme
     
     // The system name of the icon to display.
-    var systemName: String
+    var image: Image
     
     var body: some View {
         ZStack {
@@ -25,7 +25,10 @@ struct GradientIcon: View {
                            endPoint: .bottomTrailing)
             .cornerRadius(15)
             
-            Image(systemName: systemName)
+            image
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
                 .font(.title2)
                 .foregroundColor(colorScheme == .dark ? .black : .white)
         }
@@ -33,10 +36,23 @@ struct GradientIcon: View {
     }
 }
 
+extension GradientIcon {
+    init(_ name: String) {
+        image = Image(name)
+    }
+    
+    init(systemName: String) {
+        image = Image(systemName: systemName)
+    }
+}
+
 // MARK: - Gradient Icon View Preview
 
 struct GradientIcon_Previews: PreviewProvider {
     static var previews: some View {
-        GradientIcon(systemName: "tree")
+        Group {
+            GradientIcon(systemName: "trash")
+            GradientIcon("Google")
+        }
     }
 }

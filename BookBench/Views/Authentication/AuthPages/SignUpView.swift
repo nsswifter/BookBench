@@ -204,7 +204,7 @@ extension SignUpView {
                 Button {
                     authViewModel.signInGoogle()
                 } label: {
-                    GradientIcon(systemName: "book")
+                    GradientIcon("Google")
                 }
             }
             
