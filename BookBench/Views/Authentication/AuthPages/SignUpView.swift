@@ -78,7 +78,18 @@ struct SignUpView: View {
 
             Divider()
             
-            otherOptionView()
+            HStack {
+                Text("Have an account?")
+                
+                Button {
+                    authViewModel.currentPage = .logIn
+                } label: {
+                    Text("Log in")
+                        .foregroundColor(.indigo)
+                        .bold()
+                }
+            }
+            .font(.caption2)
         }
         .padding()
         .background(colorScheme == .dark ?
@@ -190,42 +201,6 @@ extension SignUpView {
             .cornerRadius(25)
             .frame(width: 300, height: 110)
         }
-    }
-}
- 
-// MARK: - Other Option Items Part
-
-extension SignUpView {
-    func otherOptionView() -> some View {
-        HStack {
-            HStack {
-                Text("Sign up with:")
-                
-                Button {
-                    authViewModel.signInGoogle()
-                } label: {
-                    GradientIcon("Google")
-                }
-            }
-            
-            if verticalSizeClass != .regular {
-                Spacer()
-            }
-            
-            HStack {
-                Text("Have an account?")
-                
-                Button {
-                    authViewModel.currentPage = .logIn
-                } label: {
-                    Text("Log in")
-                        .foregroundColor(.indigo)
-                        .bold()
-                }
-            }
-            .padding(.bottom, 1)
-        }
-        .font(.caption2)
     }
 }
 
