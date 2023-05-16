@@ -15,7 +15,6 @@
 		9151F15129FE937400C46150 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15029FE937400C46150 /* SignUpView.swift */; };
 		9151F15329FE938500C46150 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15229FE938500C46150 /* ForgotPasswordView.swift */; };
 		9151F15629FE9C8700C46150 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151F15529FE9C8700C46150 /* View.swift */; };
-		916A96692A04F66600187BF5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 916A96682A04F66600187BF5 /* GoogleSignIn */; };
 		916A96792A0575F500187BF5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A96782A0575F500187BF5 /* AuthViewModel.swift */; };
 		916A967B2A057BA700187BF5 /* DynamicLinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A967A2A057BA700187BF5 /* DynamicLinearGradient.swift */; };
 		918A5A2329FE4D9E00937FE8 /* BookBenchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A2229FE4D9E00937FE8 /* BookBenchApp.swift */; };
@@ -27,8 +26,8 @@
 		918A5A3F29FE76CB00937FE8 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A3E29FE76CB00937FE8 /* LogInView.swift */; };
 		918A5A4129FE785A00937FE8 /* GradientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4029FE785A00937FE8 /* GradientIcon.swift */; };
 		918A5A4329FE915700937FE8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4229FE915700937FE8 /* AuthView.swift */; };
-		919128FC2A08E64A00916CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919128FB2A08E64A00916CBB /* GoogleService-Info.plist */; };
 		919ADF1F2A02086B00B50182 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 919ADF1E2A02086B00B50182 /* FirebaseAuth */; };
+		919F79312A13981400189556 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919F79302A13981400189556 /* GoogleService-Info.plist */; };
 		91AFB9E72A04D85A00927C37 /* RevealableSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AFB9E62A04D85A00927C37 /* RevealableSecureField.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,7 @@
 		918A5A3E29FE76CB00937FE8 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		918A5A4029FE785A00937FE8 /* GradientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientIcon.swift; sourceTree = "<group>"; };
 		918A5A4229FE915700937FE8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		919128FB2A08E64A00916CBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		919F79302A13981400189556 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91AFB9E62A04D85A00927C37 /* RevealableSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealableSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +62,6 @@
 				919ADF1F2A02086B00B50182 /* FirebaseAuth in Frameworks */,
 				9108E5392A08FDCE0024B80D /* FirebaseFirestore in Frameworks */,
 				9100D30F2A02152200874CA5 /* Lottie in Frameworks */,
-				916A96692A04F66600187BF5 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				918A5A2229FE4D9E00937FE8 /* BookBenchApp.swift */,
-				919128FB2A08E64A00916CBB /* GoogleService-Info.plist */,
+				919F79302A13981400189556 /* GoogleService-Info.plist */,
 				918A5A2629FE4DA000937FE8 /* Assets.xcassets */,
 			);
 			path = App;
@@ -211,7 +209,6 @@
 			packageProductDependencies = (
 				919ADF1E2A02086B00B50182 /* FirebaseAuth */,
 				9100D30E2A02152200874CA5 /* Lottie */,
-				916A96682A04F66600187BF5 /* GoogleSignIn */,
 				9108E5382A08FDCE0024B80D /* FirebaseFirestore */,
 			);
 			productName = BookBench;
@@ -245,7 +242,6 @@
 			packageReferences = (
 				919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				916A96672A04F66600187BF5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 918A5A2029FE4D9E00937FE8 /* Products */;
 			projectDirPath = "";
@@ -262,8 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				918A5A3929FE50CC00937FE8 /* BookBenchAnimation.json in Resources */,
-				919128FC2A08E64A00916CBB /* GoogleService-Info.plist in Resources */,
 				918A5A2729FE4DA000937FE8 /* Assets.xcassets in Resources */,
+				919F79312A13981400189556 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,14 +506,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		916A96672A04F66600187BF5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -538,11 +526,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		916A96682A04F66600187BF5 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 916A96672A04F66600187BF5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
 		};
 		919ADF1E2A02086B00B50182 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
