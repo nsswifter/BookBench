@@ -9,6 +9,8 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+// MARK: - Auth Model
+
 struct AuthModel {
     
     /// Logs in the user with the provided email and password.
