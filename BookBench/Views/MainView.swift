@@ -13,6 +13,9 @@ struct MainView: View {
     @ObservedObject var authViewModel: AuthViewModel
 
     var body: some View {
+        
+        // TODO: Complete this View for Booking and more
+        
         Text("This is Main View")
     }
 }

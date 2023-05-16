@@ -56,6 +56,6 @@ struct LottieView: UIViewRepresentable {
 
 struct LottieView_Previews: PreviewProvider {
     static var previews: some View {
-            LottieView(name: "BookBenchAnimation")
+        LottieView(name: "BookBenchAnimation")
     }
 }

@@ -28,7 +28,11 @@ struct ContentView: View {
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
                     withAnimation(.easeOut(duration: 0.5)) {
-                        contentViewModel.currentPage = .auth
+                        if authViewModel.isLoggedIn {
+                            contentViewModel.currentPage = .main
+                        } else {
+                            contentViewModel.currentPage = .auth
+                        }
                     }
                 }
             }

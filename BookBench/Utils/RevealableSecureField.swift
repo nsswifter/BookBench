@@ -44,7 +44,7 @@ struct RevealableSecureField: View {
                     .textContentType(.password)
                     .focused($hide)
                     .opacity(showMode ? 0 : 1)
-
+                
                 Button {
                     showMode.toggle()
                     if showMode { show = true }

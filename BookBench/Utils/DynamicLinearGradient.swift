@@ -14,7 +14,7 @@ struct DynamicLinearGradient: View {
     
     // The environment color scheme, used to determine the gradient colors to use.
     @Environment(\.colorScheme) private var colorScheme
-
+    
     // The starting point of the gradient.
     @State var start = UnitPoint(x: -0.5, y: -2)
     // The ending point of the gradient.

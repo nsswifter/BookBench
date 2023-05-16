@@ -24,6 +24,8 @@ struct AuthView: View {
                     SignUpView(authViewModel: authViewModel)
                 case .forgotPassword:
                     ForgotPasswordView(authViewModel: authViewModel)
+                case .none:
+                    MainView(authViewModel: authViewModel)
                 }
             }
             .onTapGesture {

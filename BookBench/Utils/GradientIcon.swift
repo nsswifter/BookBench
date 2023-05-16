@@ -37,10 +37,14 @@ struct GradientIcon: View {
 }
 
 extension GradientIcon {
+    /// Creates a gradient icon with a custom image.
+    /// - Parameter name: The name of the custom image.
     init(_ name: String) {
         image = Image(name)
     }
     
+    /// Creates a gradient icon with a system icon.
+    /// - Parameter systemName: The name of the system icon.
     init(systemName: String) {
         image = Image(systemName: systemName)
     }
@@ -50,9 +54,6 @@ extension GradientIcon {
 
 struct GradientIcon_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            GradientIcon(systemName: "trash")
-            GradientIcon("Google")
-        }
+        GradientIcon(systemName: "trash")
     }
 }

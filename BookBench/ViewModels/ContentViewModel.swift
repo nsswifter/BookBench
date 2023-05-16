@@ -23,19 +23,4 @@ extension ContentViewModel {
         case auth
         case main
     }
-    
-    /// Sets the current page to the launch screen.
-    func goToLaunchScreenPage() {
-        currentPage = .launchScreen
-    }
-    
-    /// Sets the current page to the authentication page.
-    func goToAuthPage() {
-        currentPage = .auth
-    }
-    
-    /// Sets the current page to the main content page.
-    func goToMainPage() {
-        currentPage = .main
-    }
 }
