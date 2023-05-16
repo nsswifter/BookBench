@@ -18,10 +18,6 @@ struct ForgotPasswordView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     
-    @State private var showAlert = false
-    @State private var alertMessage = ""
-    @State private var resetEmailSent = false
-    
     var body: some View {
         ZStack {
             
@@ -68,14 +64,7 @@ struct ForgotPasswordView: View {
                 .frame(width: verticalSizeClass == .regular ? 300 : 450)
                 
                 Button {
-                    authViewModel.resetPassword { result, error in
-                        alertMessage = result
-                        showAlert = true
-                        
-                        if !error {
-                            resetEmailSent = true
-                        }
-                    }
+                    authViewModel.resetPassword()
                 } label: {
                     Text("Reset Password")
                         .bold()
@@ -115,11 +104,12 @@ struct ForgotPasswordView: View {
             .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
             .frame(maxWidth: verticalSizeClass == .regular ? 420 : 650)
             
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text(resetEmailSent ? "Password Reset" : "Password Reset Error"),
-                      message: Text(alertMessage),
+            .alert(isPresented: $authViewModel.showResetAlert) {
+                Alert(title: Text(authViewModel.resetEmailSent ?
+                                  "Password Reset" : "Password Reset Error"),
+                      message: Text(authViewModel.resetEmailAlertMessage),
                       dismissButton: .default(Text("OK")) {
-                    if resetEmailSent {
+                    if authViewModel.resetEmailSent {
                         authViewModel.currentPage = .logIn
                     }
                 })

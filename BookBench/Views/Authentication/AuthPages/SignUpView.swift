@@ -22,7 +22,6 @@ struct SignUpView: View {
     @FocusState private var repeatedPasswordFocused: Bool
     
     @State var errorText = ""
-    @State var signUpError: String?
 
     var body: some View {
         VStack(spacing: 16) {
@@ -46,11 +45,7 @@ struct SignUpView: View {
             }
             
             Button {
-                authViewModel.signUp { result in
-                    if let error = result {
-                        signUpError = error
-                    }
-                }
+                authViewModel.signUp()
             } label: {
                 Text("Sign up")
                     .bold()
@@ -68,7 +63,7 @@ struct SignUpView: View {
                     )
             }
             
-            if let signUpError {
+            if let signUpError = authViewModel.signUpError {
                 Text(signUpError)
                     .foregroundColor(.red)
                     .bold()
@@ -189,11 +184,7 @@ extension SignUpView {
                     .focused($repeatedPasswordFocused)
                     .frame(height: 55)
                     .onSubmit {
-                        authViewModel.signUp { result in
-                            if let error = result {
-                                signUpError = error
-                            }
-                        }
+                        authViewModel.signUp()
                     }
             }
             .padding([.leading, .trailing],8)

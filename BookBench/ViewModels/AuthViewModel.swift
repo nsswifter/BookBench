@@ -20,6 +20,14 @@ class AuthViewModel: UIViewController, ObservableObject {
     @Published var password = ""
     @Published var repeatedPassword = ""
     
+    @Published var signUpError: String?
+    @Published var loginError: String?
+    @Published var showResetAlert = false
+    @Published var resetEmailAlertMessage = ""
+    @Published var resetEmailSent = false
+
+    private let authModel = AuthModel()
+    
     /// Logs in the user with the provided email and password.
     /// Uses the Firebase Auth module to perform the login operation.
     /// - Parameter completion: A closure that takes an optional String parameter. It will be called after the login attempt is completed.
@@ -27,100 +35,39 @@ class AuthViewModel: UIViewController, ObservableObject {
     /// If the login is successful, the parameter will be nil.
     /// - Important: The `email` and `password` properties should be set before calling this function.
     /// - Requires: Firebase/Auth module
-    func logIn(completion: @escaping (String?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-            if let error {
-                completion(error.localizedDescription)
-            } else {
-                completion("sus")
-
+    func logIn() {        
+        authModel.logIn(email: email, password: password) { result in
+            guard result.hasPrefix("<FIRAuthDataResult:") else {
+                self.loginError = result
+                return
             }
+            
+            self.currentPage = .signUp
         }
     }
     
-    /// Signs up a new user with the provided information.
-    /// Uses the Firebase Auth and Firestore modules to perform the signup operation and save additional user info.
-    /// - Parameter completion: A closure that takes an optional String parameter. It will be called after the signup attempt is completed.
-    /// If an error occurs during the signup process, the error description will be passed as a parameter.
-    /// If the signup is successful, the parameter will be nil.
-    /// - Important: The `firstname`, `lastname`, `password`, `repeatedPassword`, and `email` properties should be set before calling this function.
-    /// - Requires: Firebase/Auth and Firebase/Firestore modules
-    func signUp(completion: @escaping (String?) -> Void) {
-        guard !firstname.isEmpty else {
-            completion("Enter your firstname.")
-            return
-        }
-        
-        guard !lastname.isEmpty else {
-            completion("Enter your lastname.")
-            return
-        }
-        
-        guard password == repeatedPassword else {
-            completion("Passwords don't match.")
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error {
-                completion(error.localizedDescription)
-            } else {
-                guard let user = authResult?.user else {
-                    completion("Error creating user.")
-                    return
-                }
-                self.saveAdditionalUserInfo(for: user, completion: completion)
+    func signUp() {
+        authModel.signUp(firstname: firstname, lastname: lastname,
+                         email: email,
+                         password: password, repeatedPassword: repeatedPassword)  { result in
+            guard result.hasPrefix("Success") else {
+                self.signUpError = result
+                return
             }
+            
+            self.currentPage = .forgotPassword
         }
     }
     
-    /// Saves additional user information to the Firestore database.
-    /// - Parameters:
-    ///   - user: The `User` object representing the user whose information needs to be saved.
-    ///   - completion: A closure that takes an optional String parameter. It will be called after the saving process is completed.
-    ///                 If an error occurs during the saving process, the error description will be passed as a parameter.
-    ///                 If the saving is successful, the parameter will be "Success".
-    /// - Important: The `firstname`, `lastname`, and `email` properties should be set before calling this function.
-    /// - Requires: Firebase/Firestore module
-    func saveAdditionalUserInfo(for user: User, completion: @escaping (String?) -> Void) {
-        let dataBase = Firestore.firestore()
-        
-        dataBase
-            .collection("users")
-            .document(user.uid)
-            .setData([ "firstname": firstname,
-                       "lastname": lastname,
-                       "email": email
-                     ]) { error in
-                if let error { completion(error.localizedDescription) }
-                else {
-
-                }
-            }
-    }
-    
-    
-    func resetPassword(completion: @escaping (String, Bool) -> Void) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let error {
-                // Error occurred while resetting password
-                completion(error.localizedDescription, true)
-            } else {
-                // Password reset email sent successfully
-                completion("Password reset email sent.", false)
+    func resetPassword() {
+        authModel.resetPassword(email: email) { result, error in
+            self.resetEmailAlertMessage = result
+            self.showResetAlert = true
+            
+            if !error {
+                self.resetEmailSent = true
             }
         }
-    }
-
-    
-    func autoLogIn(with mode: inout Bool) {
-        var localMode = mode
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil {
-                localMode.toggle()
-            }
-        }
-        mode = localMode
     }
 }
 

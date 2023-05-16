@@ -13,7 +13,7 @@ struct MainView: View {
     @ObservedObject var authViewModel: AuthViewModel
 
     var body: some View {
-        Text("Hello, World!")
+        Text("This is Main View")
     }
 }
 

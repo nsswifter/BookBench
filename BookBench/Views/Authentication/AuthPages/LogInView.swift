@@ -18,7 +18,6 @@ struct LogInView: View {
     
     @FocusState private var passwordFocused: Bool
     
-    @State var loginError: String?
     
     var body: some View {
         VStack(spacing: 16) {
@@ -42,11 +41,7 @@ struct LogInView: View {
             }
             
             Button {
-                authViewModel.logIn { result in
-                    if let error = result {
-                        loginError = error
-                    }
-                }
+                authViewModel.logIn()
             } label: {
                 Text("Log in")
                     .bold()
@@ -64,7 +59,7 @@ struct LogInView: View {
                     )
             }
             
-            if let loginError {
+            if let loginError = authViewModel.loginError {
                 Text(loginError)
                     .foregroundColor(.red)
                     .bold()
@@ -127,11 +122,7 @@ extension LogInView {
                     .submitLabel(.go)
                     .focused($passwordFocused)
                     .onSubmit {
-                        authViewModel.logIn { result in
-                            if let error = result {
-                                loginError = error
-                            }
-                        }
+                        authViewModel.logIn()
                     }
             }
             .padding([.leading, .trailing],8)
