@@ -32,7 +32,8 @@ class AuthViewModel: UIViewController, ObservableObject {
             if let error {
                 completion(error.localizedDescription)
             } else {
-                
+                completion("sus")
+
             }
         }
     }

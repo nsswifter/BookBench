@@ -31,8 +31,9 @@ struct ForgotPasswordView: View {
                 } label: {
                     GradientIcon(systemName: "arrowshape.turn.up.backward.fill")
                 }
-                .padding([.leading, .top], 25)
-                
+                .padding(.top, 30)
+                .padding(.leading, 50)
+
                 Spacer()
             }
             .frame(maxHeight: .infinity, alignment: .top)
