@@ -82,7 +82,7 @@ Additionally, a visually appealing launch screenView, accompanied by a captivati
 ```
 ## Package Dependencies
 
-[Firebase](github.com/firebase/firebase-ios-sdk) 
+[Firebase](https://github.com/firebase/firebase-ios-sdk) 
 
 [Lottie iOS](https://github.com/airbnb/lottie-ios.git)
 
