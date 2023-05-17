@@ -1,4 +1,6 @@
-# <img src="Documentation/icon.png" style="border: 1px solid purple" width="60" height="60"/> &nbsp; BookBench
+<p align="center"> <img src="Documentation/icon.png" style="border: 1px solid purple" width="150" height="150"/> </p>
+
+# <p align="center"> BookBench </p>
 
 BookBench is a dynamic and innovative iOS application designed to streamline the process of reserving library seats.
 Leveraging the power of `SwiftUI` and following a well-structured `MVVM architecture`, this app aims to provide users with a convenient and efficient way to secure a seat in the library. 
