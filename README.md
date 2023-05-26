@@ -19,6 +19,8 @@ Additionally, a visually appealing launch screenView, accompanied by a captivati
 - [Author](#author)
 - [License](#license)
 
+![Sign Up View](Documentation/SignUpView.png)
+
 ## Project Diagram
 
 ```bash
