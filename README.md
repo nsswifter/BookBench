@@ -9,6 +9,8 @@ Additionally, a visually appealing launch screenView, accompanied by a captivati
 
 > Note: The project is currently in progress...
 
+![Demo of Auth View](Documentation/DemoAuthView.mov)
+
 ## Table of Contents
 
 - [Project Diagram](#project-diagram)
