@@ -1,13 +1,14 @@
-<p align="center"> <img src="Documentation/icon.png" style="border: 1px solid purple" width="150" height="150"/> </p>
+<p align="center"> <img src="Documentation/icon.png" style="border: 1px solid purple" width="300" height="300"/> </p>
+<h1 align="center"> BookBench </h1>
 
-# <p align="center"> BookBench </p>
+**BookBench**, an innovative iOS application dedicated to simplifying the reservation of library seats, is progressing steadily with a focus on enhancing user experience through `SwiftUI` and a well-organized `MVVM architecture`.
 
-BookBench is a dynamic and innovative iOS application designed to streamline the process of reserving library seats.
-Leveraging the power of `SwiftUI` and following a well-structured `MVVM architecture`, this app aims to provide users with a convenient and efficient way to secure a seat in the library. 
-While the project is currently in progress, significant milestones have been accomplished, including the implementation of `SignUp`, `LogIn`, and `Reset Password` views using `Firebase` Authentication and Database. 
+The authentication section is a robust foundation, featuring `SignUp`, `LogIn`, and `Reset Password` functionalities seamlessly integrated using `Firebase` Authentication and Database. 
+This ensures a secure and reliable user authentication process, laying the groundwork for a trustworthy application.
+
 Additionally, a visually appealing launch screenView, accompanied by a captivating custom `Lottie animation`, creates a memorable user experience.
 
-> Note: The project is currently in progress...
+While the authentication section has been successfully implemented, the project welcomes further enhancements and additions to complement the existing features to create a comprehensive and user-friendly library seat reservation experience.
 
 ![Demo of Auth View](Documentation/DemoAuthView.mov)
 
@@ -16,7 +17,6 @@ Additionally, a visually appealing launch screenView, accompanied by a captivati
 - [Project Diagram](#project-diagram)
 - [Package Dependencies](#package-dependencies)
 - [Contributing](#contributors)
-- [Author](#author)
 - [License](#license)
 
 ![Sign Up View](Documentation/SignUpView.png)
@@ -96,10 +96,6 @@ Additionally, a visually appealing launch screenView, accompanied by a captivati
 
 Feel free to share your ideas or any other problems. Pull requests are welcome! 
 For major changes, please open an issue first to discuss what you would like to change.
-
-## Author
-
-- [Mehdi Karami](https://www.github.com/mehdi2003karami)
 
 ## License
 
