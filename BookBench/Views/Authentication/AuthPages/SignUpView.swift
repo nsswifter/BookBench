@@ -25,7 +25,6 @@ struct SignUpView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            
             VStack(alignment: .leading, spacing: 10) {
                 Text("Sign up" )
                     .font(.title2)
@@ -49,7 +48,7 @@ struct SignUpView: View {
             } label: {
                 Text("Sign up")
                     .bold()
-                    .frame(width: verticalSizeClass == .regular ? 300 : 605)
+                    .frame(maxWidth: .infinity)
                     .padding([.top, .bottom], 12)
                     .foregroundColor(colorScheme == .dark ? .black : .white)
                     .background(Capsule(style: .continuous)
@@ -70,7 +69,7 @@ struct SignUpView: View {
                     .font(.caption2)
                     .shadow(color: colorScheme == .dark ? .black : .white, radius: 0.5)
             }
-
+            
             Divider()
             
             HStack {
@@ -87,11 +86,10 @@ struct SignUpView: View {
             .font(.caption2)
         }
         .padding()
-        .background(colorScheme == .dark ?
-            .black.opacity(0.5) : .white.opacity(0.5))
+        .background(colorScheme == .dark ? .black.opacity(0.5) : .white.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
-        .frame(maxWidth: verticalSizeClass == .regular ? 420 : 800)
+        .padding([.leading, .trailing], verticalSizeClass == .regular ? 24 : 40)
+        .animation(.linear(duration: 25), value: 25)
     }
 }
 
@@ -99,60 +97,54 @@ struct SignUpView: View {
 
 extension SignUpView {
     func inputView() -> some View {
-        Group {
-            VStack {
-                HStack(spacing: 10) {
-                    GradientIcon(systemName: "person.fill")
-                    
-                    TextField("Firstname", text: $authViewModel.firstname)
-                        .font(.subheadline)
-                        .padding(17)
-                        .textContentType(.givenName)
-                        .disableAutocorrection(true)
-                        .submitLabel(.next)
-                        .onSubmit {
-                            lastnameFocused = true
-                        }
-                    
-                    Divider()
-                    
-                    TextField("Lastname", text: $authViewModel.lastname)
-                        .font(.subheadline)
-                        .padding(17)
-                        .textContentType(.familyName)
-                        .disableAutocorrection(true)
-                        .submitLabel(.next)
-                        .focused($lastnameFocused)
-                        .onSubmit {
-                            emailFocused = true
-                        }
-                }
-                .padding([.leading, .trailing],8)
-                .background(.indigo.opacity(0.2))
-                .cornerRadius(25)
-                .frame(width: 300, height: 50)
+        VStack {
+            HStack(spacing: 10) {
+                GradientIcon(systemName: "person.fill")
                 
-                HStack {
-                    GradientIcon(systemName: "envelope.fill")
-                    
-                    TextField("Email", text: $authViewModel.email)
-                        .font(.subheadline)
-                        .padding(17)
-                        .textContentType(.emailAddress)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .keyboardType(.emailAddress)
-                        .submitLabel(.next)
-                        .focused($emailFocused)
-                        .onSubmit {
-                            passwordFocused = true
-                        }
-                }
-                .padding([.leading, .trailing],8)
-                .background(.indigo.opacity(0.2))
-                .cornerRadius(25)
-                .frame(width: 300, height: 50)
+                TextField("Firstname", text: $authViewModel.firstname)
+                    .font(.subheadline)
+                    .textContentType(.givenName)
+                    .disableAutocorrection(true)
+                    .submitLabel(.next)
+                    .onSubmit {
+                        lastnameFocused = true
+                    }
+                
+                Divider()
+                
+                TextField("Lastname", text: $authViewModel.lastname)
+                    .font(.subheadline)
+                    .textContentType(.familyName)
+                    .disableAutocorrection(true)
+                    .submitLabel(.next)
+                    .focused($lastnameFocused)
+                    .onSubmit {
+                        emailFocused = true
+                    }
             }
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(8)
+            .background(.indigo.opacity(0.2))
+            .cornerRadius(25)
+            
+            HStack {
+                GradientIcon(systemName: "envelope.fill")
+                
+                TextField("Email", text: $authViewModel.email)
+                    .font(.subheadline)
+                    .textContentType(.emailAddress)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                    .submitLabel(.next)
+                    .focused($emailFocused)
+                    .onSubmit {
+                        passwordFocused = true
+                    }
+            }
+            .padding(8)
+            .background(.indigo.opacity(0.2))
+            .cornerRadius(25)
             
             VStack(spacing: 0) {
                 HStack {
@@ -160,7 +152,6 @@ extension SignUpView {
                     
                     RevealableSecureField("Password",text: $authViewModel.password)
                         .font(.subheadline)
-                        .padding(17)
                         .textContentType(.password)
                         .keyboardType(.asciiCapable)
                         .autocapitalization(.none)
@@ -176,7 +167,6 @@ extension SignUpView {
                 
                 RevealableSecureField("Repeat Password", text: $authViewModel.repeatedPassword)
                     .font(.subheadline)
-                    .padding(17)
                     .textContentType(.password)
                     .keyboardType(.asciiCapable)
                     .autocapitalization(.none)
@@ -187,10 +177,9 @@ extension SignUpView {
                         authViewModel.signUp()
                     }
             }
-            .padding([.leading, .trailing],8)
+            .padding(8)
             .background(.indigo.opacity(0.2))
             .cornerRadius(25)
-            .frame(width: 300, height: 110)
         }
     }
 }
