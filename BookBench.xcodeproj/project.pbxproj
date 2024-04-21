@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9100D30F2A02152200874CA5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9100D30E2A02152200874CA5 /* Lottie */; };
 		9108E5342A08F57B0024B80D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108E5332A08F57B0024B80D /* ContentViewModel.swift */; };
 		9108E5362A08F8500024B80D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9108E5352A08F8500024B80D /* MainView.swift */; };
-		9108E5392A08FDCE0024B80D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9108E5382A08FDCE0024B80D /* FirebaseFirestore */; };
 		912B512D2A14113F009F35A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 912B512C2A14113F009F35A7 /* GoogleService-Info.plist */; };
 		912B512F2A141163009F35A7 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B512E2A141162009F35A7 /* AuthModel.swift */; };
 		9142730D2A11664900103F93 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142730C2A11664900103F93 /* ProfileView.swift */; };
@@ -28,11 +26,12 @@
 		918A5A3F29FE76CB00937FE8 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A3E29FE76CB00937FE8 /* LogInView.swift */; };
 		918A5A4129FE785A00937FE8 /* GradientIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4029FE785A00937FE8 /* GradientIcon.swift */; };
 		918A5A4329FE915700937FE8 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918A5A4229FE915700937FE8 /* AuthView.swift */; };
-		919ADF1F2A02086B00B50182 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 919ADF1E2A02086B00B50182 /* FirebaseAuth */; };
 		91AFB9E72A04D85A00927C37 /* RevealableSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AFB9E62A04D85A00927C37 /* RevealableSecureField.swift */; };
+		D601ED4F88C1F9C81E51CACF /* Pods_BookBench.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6BEFEC6FB3AE7CBC22007 /* Pods_BookBench.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79D2B5E530EB94C58AD8B0B6 /* Pods-BookBench.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBench.release.xcconfig"; path = "Target Support Files/Pods-BookBench/Pods-BookBench.release.xcconfig"; sourceTree = "<group>"; };
 		9108E5332A08F57B0024B80D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		9108E5352A08F8500024B80D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		912B512C2A14113F009F35A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -54,6 +53,8 @@
 		918A5A4029FE785A00937FE8 /* GradientIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientIcon.swift; sourceTree = "<group>"; };
 		918A5A4229FE915700937FE8 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		91AFB9E62A04D85A00927C37 /* RevealableSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealableSecureField.swift; sourceTree = "<group>"; };
+		EEB4DA4146D860037B5B1244 /* Pods-BookBench.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookBench.debug.xcconfig"; path = "Target Support Files/Pods-BookBench/Pods-BookBench.debug.xcconfig"; sourceTree = "<group>"; };
+		FCE6BEFEC6FB3AE7CBC22007 /* Pods_BookBench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookBench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,20 +62,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919ADF1F2A02086B00B50182 /* FirebaseAuth in Frameworks */,
-				9108E5392A08FDCE0024B80D /* FirebaseFirestore in Frameworks */,
-				9100D30F2A02152200874CA5 /* Lottie in Frameworks */,
+				D601ED4F88C1F9C81E51CACF /* Pods_BookBench.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9108E5372A08FDCD0024B80D /* Frameworks */ = {
+		1B61BB7C7980DEC448B06F20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCE6BEFEC6FB3AE7CBC22007 /* Pods_BookBench.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E944C47BC9E91ADA8E34DAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EEB4DA4146D860037B5B1244 /* Pods-BookBench.debug.xcconfig */,
+				79D2B5E530EB94C58AD8B0B6 /* Pods-BookBench.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		916A966E2A0501AF00187BF5 /* App */ = {
@@ -153,7 +163,8 @@
 			children = (
 				918A5A2129FE4D9E00937FE8 /* BookBench */,
 				918A5A2029FE4D9E00937FE8 /* Products */,
-				9108E5372A08FDCD0024B80D /* Frameworks */,
+				4E944C47BC9E91ADA8E34DAA /* Pods */,
+				1B61BB7C7980DEC448B06F20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,20 +211,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 918A5A2D29FE4DA000937FE8 /* Build configuration list for PBXNativeTarget "BookBench" */;
 			buildPhases = (
+				5742AFBE8EB61CB212F12C02 /* [CP] Check Pods Manifest.lock */,
 				918A5A1B29FE4D9E00937FE8 /* Sources */,
 				918A5A1C29FE4D9E00937FE8 /* Frameworks */,
 				918A5A1D29FE4D9E00937FE8 /* Resources */,
+				7D7D3FDB22592A9BDAA23585 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = BookBench;
-			packageProductDependencies = (
-				919ADF1E2A02086B00B50182 /* FirebaseAuth */,
-				9100D30E2A02152200874CA5 /* Lottie */,
-				9108E5382A08FDCE0024B80D /* FirebaseFirestore */,
-			);
 			productName = BookBench;
 			productReference = 918A5A1F29FE4D9E00937FE8 /* BookBench.app */;
 			productType = "com.apple.product-type.application";
@@ -242,10 +250,6 @@
 				Base,
 			);
 			mainGroup = 918A5A1629FE4D9E00937FE8;
-			packageReferences = (
-				919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-			);
 			productRefGroup = 918A5A2029FE4D9E00937FE8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -267,6 +271,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5742AFBE8EB61CB212F12C02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BookBench-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D7D3FDB22592A9BDAA23585 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookBench/Pods-BookBench-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookBench/Pods-BookBench-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookBench/Pods-BookBench-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		918A5A1B29FE4D9E00937FE8 /* Sources */ = {
@@ -412,6 +458,7 @@
 		};
 		918A5A2E29FE4DA000937FE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEB4DA4146D860037B5B1244 /* Pods-BookBench.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -419,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = X8S7NK9ZBV;
+				DEVELOPMENT_TEAM = ZQ4G739778;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BookBench/Info.plist;
@@ -436,7 +483,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi.BookBench;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi2003karami.BookBench;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -446,6 +493,7 @@
 		};
 		918A5A2F29FE4DA000937FE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D2B5E530EB94C58AD8B0B6 /* Pods-BookBench.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -453,7 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = X8S7NK9ZBV;
+				DEVELOPMENT_TEAM = ZQ4G739778;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BookBench/Info.plist;
@@ -470,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi.BookBench;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mehdi2003karami.BookBench;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -500,43 +548,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-		919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9100D30E2A02152200874CA5 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9100D30D2A02152200874CA5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-		9108E5382A08FDCE0024B80D /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		919ADF1E2A02086B00B50182 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 919ADF1D2A02086B00B50182 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 918A5A1729FE4D9E00937FE8 /* Project object */;
 }
