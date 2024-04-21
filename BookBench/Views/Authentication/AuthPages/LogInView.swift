@@ -45,7 +45,7 @@ struct LogInView: View {
             } label: {
                 Text("Log in")
                     .bold()
-                    .frame(width: verticalSizeClass == .regular ? 300 : 605)
+                    .frame(maxWidth: .infinity)
                     .padding([.top, .bottom], 12)
                     .foregroundColor(colorScheme == .dark ? .black : .white)
                     .background(Capsule(style: .continuous)
@@ -79,8 +79,7 @@ struct LogInView: View {
         .background(colorScheme == .dark ?
             .black.opacity(0.5) : .white.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        .padding([.leading, .trailing], verticalSizeClass == .regular ? 50 : 100)
-        .frame(maxWidth: verticalSizeClass == .regular ? 450 : 800)
+        .padding([.leading, .trailing], verticalSizeClass == .regular ? 24 : 40)
         .animation(.linear(duration: 25), value: 25)
     }
 }
@@ -94,42 +93,35 @@ extension LogInView {
                 GradientIcon(systemName: "envelope.fill")
                 
                 TextField("Email", text: $authViewModel.email)
-                    .font(.subheadline)
-                    .padding(17)
                     .textContentType(.emailAddress)
                     .disableAutocorrection(true)
-                    .autocapitalization(.none)
                     .keyboardType(.emailAddress)
                     .submitLabel(.next)
                     .onSubmit {
                         passwordFocused = true
                     }
             }
-            .padding([.leading, .trailing],8)
+            .padding(8)
             .background(.indigo.opacity(0.2))
             .cornerRadius(25)
-            .frame(width: 300)
             
             HStack {
                 GradientIcon(systemName: "key.fill")
                 
                 RevealableSecureField("Password",text: $authViewModel.password)
-                    .font(.subheadline)
-                    .padding(17)
                     .textContentType(.password)
                     .keyboardType(.asciiCapable)
-                    .autocapitalization(.none)
                     .submitLabel(.go)
                     .focused($passwordFocused)
                     .onSubmit {
                         authViewModel.logIn()
                     }
             }
-            .padding([.leading, .trailing],8)
+            .padding(8)
             .background(.indigo.opacity(0.2))
             .cornerRadius(25)
-            .frame(width: 300)
         }
+        .autocapitalization(.none)
     }
 }
 
