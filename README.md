@@ -8,7 +8,8 @@ This ensures a secure and reliable user authentication process, laying the groun
 
 Additionally, a visually appealing launch screenView, accompanied by a captivating custom `Lottie animation`, creates a memorable user experience.
 
-While the authentication section has been successfully implemented, the project welcomes further enhancements and additions to complement the existing features to create a comprehensive and user-friendly library seat reservation experience.
+> [!NOTE]
+> While the authentication section has been successfully implemented, the project welcomes further enhancements and additions to complement the existing features to create a comprehensive and user-friendly library seat reservation experience.
 
 ![Demo of Auth View](Documentation/DemoAuthView.mov)
 
