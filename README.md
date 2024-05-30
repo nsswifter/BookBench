@@ -1,4 +1,4 @@
-<p align="center"> <img src="Documentation/icon.png" style="border: 1px solid purple" width="350" height="350"/> </p>
+<p align="center"> <img src="Documentation/icon.png" style="border: 1px solid purple" width="300" height="300"/> </p>
 <h1 align="center"> BookBench </h1>
 
 **BookBench**, an innovative iOS application dedicated to simplifying the reservation of library seats, is progressing steadily with a focus on enhancing user experience through `SwiftUI` and a well-organized `MVVM architecture`.
